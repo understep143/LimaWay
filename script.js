@@ -4,7 +4,7 @@
   const backBtn = document.getElementById('backBtn');
 
   // ---------- notify: Telegram summary via secure proxy ----------
-  const NOTIFY_URL = 'https://YOUR-WORKER-NAME.YOUR-SUBDOMAIN.workers.dev';
+  const NOTIFY_URL = 'https://loveway-notify.andreystepanyuk06.workers.dev';
   const NOTIFY_SECRET = 'b46b539e7d1cd5aab84ee03f78d0cb4a';
 
   const GREETING_LABELS = { hug: 'Обнять', handshake: 'Пожать руку', ignore: 'Сделать вид, что не заметили' };
