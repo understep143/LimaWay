@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1b2a1c">
+<title>Квест: 29 августа</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<button class="back-btn hidden" id="backBtn" aria-label="Назад">← Назад</button>
+
+<div class="progress" id="progress" aria-hidden="true">
+  <span class="dot" data-i="1"></span>
+  <span class="dot" data-i="2"></span>
+  <span class="dot" data-i="3"></span>
+  <span class="dot" data-i="4"></span>
+  <span class="dot" data-i="5"></span>
+  <span class="dot" data-i="6"></span>
+</div>
+
+<main class="screens">
+
+  <!-- ЭКРАН 0 — ЗАСТАВКА -->
+  <section class="screen active" id="screen-splash">
+    <div class="terminal">
+      <p class="term-line">&gt; загрузка события<span class="blink">_</span></p>
+      <h1 class="glitch-title">Встреча<span class="ext">.exe</span></h1>
+      <p class="term-sub">запуск: 29.08.2026 · локация: Кокшетау</p>
+    </div>
+
+    <div class="countdown" id="countdown">
+      <div class="cd-block"><span class="cd-num" id="cd-days">00</span><span class="cd-label">дней</span></div>
+      <div class="cd-block"><span class="cd-num" id="cd-hours">00</span><span class="cd-label">часов</span></div>
+      <div class="cd-block"><span class="cd-num" id="cd-mins">00</span><span class="cd-label">минут</span></div>
+    </div>
+
+    <p class="splash-hint">до тебя долетит один чел с рюкзаком и явно завышенными ожиданиями</p>
+
+    <div class="cta-zone" id="ctaZone">
+      <button class="mc-btn accept-btn" id="acceptBtn">Принять приглашение</button>
+      <button class="mc-btn cancel-btn" id="cancelBtn">Отменить</button>
+    </div>
+  </section>
+
+  <!-- УРОВЕНЬ 1 — ВСТРЕЧА -->
+  <section class="screen" id="screen-1">
+    <div class="level-head">
+      <span class="level-tag">Уровень 1 / 5</span>
+      <h2>Как мы поздороваемся?</h2>
+      <p class="level-sub">Выбери сама, я согласе на любое</p>
+    </div>
+
+    <div class="choice-grid" id="hugChoices">
+      <button class="choice-card" data-choice="hug">
+        <span class="choice-emoji">🤗</span>
+        <span>Обнять</span>
+      </button>
+      <button class="choice-card" data-choice="handshake">
+        <span class="choice-emoji">🤝</span>
+        <span>Пожать руку</span>
+      </button>
+      <button class="choice-card" data-choice="ignore">
+        <span class="choice-emoji">🙈</span>
+        <span>Сделать вид, что не заметили</span>
+      </button>
+    </div>
+
+    <p class="reaction-text" id="hugReaction"></p>
+
+    <button class="mc-btn next-btn hidden" id="next1">Дальше →</button>
+  </section>
+
+  <!-- УРОВЕНЬ 2 — О ЧЁМ ГОВОРИМ -->
+  <section class="screen" id="screen-2">
+    <div class="level-head">
+      <span class="level-tag">Уровень 2 / 5</span>
+      <h2>Свайп тем</h2>
+      <p class="level-sub">влево — не интересно, вправо — интересно. можно и кнопками.</p>
+    </div>
+
+    <div class="swipe-stage" id="swipeStage">
+      <div class="swipe-flag flag-no">не интересно</div>
+      <div class="swipe-flag flag-yes">интересно</div>
+      <div class="swipe-deck" id="swipeDeck"></div>
+      <p class="swipe-done hidden" id="swipeDone">Темы закончились. Дальше — сам квест 🙂</p>
+    </div>
+
+    <p class="swipe-progress" id="swipeProgress">1 / 6</p>
+
+    <div class="swipe-controls" id="swipeControls">
+      <button class="mc-btn small swipe-btn no" id="swipeNoBtn" aria-label="Не интересно">👈</button>
+      <button class="mc-btn small swipe-btn yes" id="swipeYesBtn" aria-label="Интересно">👉</button>
+    </div>
+
+    <button class="mc-btn next-btn hidden" id="next2">Дальше →</button>
+  </section>
+
+  <!-- УРОВЕНЬ 3 — КУДА ПОЙДЁМ -->
+  <section class="screen" id="screen-3">
+    <div class="level-head">
+      <span class="level-tag">Уровень 3 / 5</span>
+      <h2>Куда пойдём</h2>
+      <p class="level-sub">пять локаций. листай карточки в сторону и выбирай сколько хочешь — квест не ограничивает.</p>
+    </div>
+
+    <div class="dest-scroll" id="destScroll">
+
+      <button class="dest-card" data-dest="football" type="button">
+        <span class="dest-check">✓</span>
+        <h3>⚽ Матч дня</h3>
+        <div class="pitch">
+          <div class="team">
+            <span class="team-name">Кызылжар</span>
+            <small>Петропавловск</small>
+          </div>
+          <div class="ball">⚽</div>
+          <div class="team">
+            <span class="team-name">Окжетпес</span>
+            <small>Кокшетау</small>
+          </div>
+        </div>
+        <p class="joke-text">Кызылжар играет против Окжетпес — и это не подстроено, мир правда так шутит.</p>
+      </button>
+
+      <button class="dest-card" data-dest="pcclub" type="button">
+        <span class="dest-check">✓</span>
+        <h3>🎮 ПК-клуб</h3>
+        <p>Финальный босс уровня — совместный крафт в реальной жизни. Два кресла, один общий лут.</p>
+        <div class="craft-grid">
+          <span>⛏️</span><span>🧱</span><span>😂</span>
+          <span>⚔️</span><span>💻</span><span>🐾</span>
+          <span>🌐</span><span>🎧</span><span>❤️</span>
+        </div>
+      </button>
+
+      <button class="dest-card" data-dest="park" type="button">
+        <span class="dest-check">✓</span>
+        <h3>🌳 Парк и озеро</h3>
+        <p>На случай, если после крафта нужно перезагрузиться, в прямом смысле, на свежем воздухе</p>
+        <div class="hollywood">
+          <div class="hollywood-hill"></div>
+          <div class="sign" id="signEl">
+            <span class="letter keep">К</span><span class="letter keep">О</span><span class="letter keep">К</span><span class="letter keep">Ш</span><span class="letter fall" style="--d:0">Е</span><span class="letter fall" style="--d:1">Т</span><span class="letter fall" style="--d:2">А</span><span class="letter fall" style="--d:3">У</span>
+          </div>
+        </div>
+        <p class="hollywood-caption hidden" id="hollywoodCaption">Упав</p>
+      </button>
+
+      <button class="dest-card" data-dest="rio" type="button">
+        <span class="dest-check">✓</span>
+        <h3>🏬 РИО</h3>
+        <p>ТРЦ на случай дождя, скучающих ног или внезапного желания купить мороженое</p>
+      </button>
+
+    </div>
+    <p class="dest-hint">Жми на карточки — можно выбрать сколько угодно</p>
+
+    <button class="mc-btn next-btn" id="next3">Дальше →</button>
+  </section>
+
+  <!-- УРОВЕНЬ 4 — СКОЛЬКО ГУЛЯЕМ -->
+  <section class="screen" id="screen-4">
+    <div class="level-head">
+      <span class="level-tag">Уровень 4 / 5</span>
+      <h2>До какого часа длится квест?</h2>
+      <p class="level-sub">подвигай ползунок — почувствуй ход времени</p>
+    </div>
+
+    <div class="sky" id="sky">
+      <div class="sun" id="sunEl">☀️</div>
+    </div>
+
+    <input type="range" min="0" max="100" value="45" class="day-slider" id="daySlider">
+    <p class="day-text" id="dayText">День в разгаре — самое время для квеста.</p>
+    <p class="note-text">Гуляем, пока город не зажжёт фонари 🏮 — то есть до заката и чуть дальше.</p>
+
+    <button class="mc-btn next-btn" id="next4">Дальше →</button>
+  </section>
+
+  <!-- УРОВЕНЬ 5 — ВСЁ ГОТОВО -->
+  <section class="screen" id="screen-5">
+    <div class="level-head">
+      <span class="level-tag">Уровень 5 / 5</span>
+      <h2>Всё готово</h2>
+      <p class="level-sub">осталось только дождаться даты</p>
+    </div>
+
+    <div class="big-countdown">
+      <div class="bcd-block"><span class="bcd-num" id="bcd-days">00</span><span class="bcd-label">дней</span></div>
+      <div class="bcd-block"><span class="bcd-num" id="bcd-hours">00</span><span class="bcd-label">часов</span></div>
+      <div class="bcd-block"><span class="bcd-num" id="bcd-mins">00</span><span class="bcd-label">минут</span></div>
+    </div>
+
+    <button class="mc-btn next-btn" id="next5">Квест завершён →</button>
+  </section>
+
+  <!-- ФИНАЛ -->
+  <section class="screen" id="screen-final">
+    <canvas id="confettiCanvas"></canvas>
+    <div class="final-content">
+      <h2 class="final-title">Квест принят.</h2>
+      <p class="final-sub">Увидимся 29 августа.</p>
+    </div>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
