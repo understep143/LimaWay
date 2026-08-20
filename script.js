@@ -10,7 +10,7 @@
   const GREETING_LABELS = { hug: 'Обнять', handshake: 'Пожать руку', ignore: 'Сделать вид, что не заметили' };
   const DEST_LABELS = { football: '⚽ Матч дня', pcclub: '🎮 ПК-клуб', park: '🌳 Парк и озеро', rio: '🏬 РИО' };
 
-  const questData = { greeting: null, likedTopics: [], destinations: [] };
+  const questData = { greeting: null, likedTopics: [], destinations: [], dayPhase: null };
 
   function sendQuestNotification() {
     if (!NOTIFY_URL.startsWith('http') || NOTIFY_URL.includes('YOUR-WORKER-NAME')) return;
@@ -291,26 +291,30 @@
   const dayText = document.getElementById('dayText');
 
   function updateSky(val) {
-    let gradient, icon, text, sunTop;
+    let gradient, icon, text, sunTop, phase;
     if (val < 25) {
       gradient = 'linear-gradient(180deg, #8ea6c9 0%, #ffb27a 100%)';
       icon = '🌅';
       text = 'Раннее утро — я как раз доезжаю на вокзал.';
+      phase = 'Раннее утро';
       sunTop = 80 - val * 1.2;
     } else if (val < 70) {
       gradient = 'linear-gradient(180deg, #ffd58a 0%, #ff9d3d 100%)';
       icon = '☀️';
       text = 'День в разгаре — самое время для квеста.';
+      phase = 'День в разгаре';
       sunTop = 30;
     } else if (val < 90) {
       gradient = 'linear-gradient(180deg, #ff9d6a 0%, #b5507a 100%)';
       icon = '🌇';
       text = 'Закат. Город становится особенно киношным.';
+      phase = 'Закат';
       sunTop = 40 + (val - 70) * 2;
     } else {
       gradient = 'linear-gradient(180deg, #2c2a4a 0%, #16213a 100%)';
       icon = '🌆';
       text = 'Фонари зажглись. Такси уже думает о тебе (см. уровень 5).';
+      phase = 'Городские фонари зажглись';
       sunTop = 90;
     }
     sky.style.background = gradient;
@@ -318,6 +322,7 @@
     sunEl.style.left = val + '%';
     sunEl.style.top = sunTop + '%';
     dayText.textContent = text;
+    questData.dayPhase = `${icon} ${phase}`;
   }
 
   daySlider.addEventListener('input', () => updateSky(Number(daySlider.value)));
