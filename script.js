@@ -86,9 +86,9 @@
   // ---------- splash: dodge cancel / grow accept ----------
   const acceptBtn = document.getElementById('acceptBtn');
   const cancelBtn = document.getElementById('cancelBtn');
-  const ctaZone = document.getElementById('ctaZone');
 
-  const dodgeTexts = ['Отменить', 'Не, стой...', 'Э, куда?!', 'Ладно, сдаюсь'];
+  const dodgeTexts = ['Отменить', 'Э, куда?!', 'Ладно, сдаюсь'];
+  const dodgeClasses = [null, 'dodge-right', 'dodge-left'];
   let attempts = 0;
   const MAX_ATTEMPTS = 3;
 
@@ -97,15 +97,8 @@
     e.preventDefault();
     attempts++;
 
-    const zoneW = ctaZone.clientWidth;
-    const zoneH = ctaZone.clientHeight;
-    const btnW = cancelBtn.offsetWidth;
-    const btnH = cancelBtn.offsetHeight;
-    const x = Math.random() * Math.max(zoneW - btnW, 40) + btnW / 2;
-    const y = Math.random() * Math.max(zoneH - btnH, 40) + btnH / 2;
-
-    cancelBtn.style.left = x + 'px';
-    cancelBtn.style.top = y + 'px';
+    cancelBtn.classList.remove('dodge-right', 'dodge-left');
+    if (dodgeClasses[attempts]) cancelBtn.classList.add(dodgeClasses[attempts]);
     cancelBtn.textContent = dodgeTexts[Math.min(attempts, dodgeTexts.length - 1)];
 
     if (attempts >= MAX_ATTEMPTS) {
@@ -125,8 +118,8 @@
 
   // ---------- level 1: hug choices ----------
   const hugReactions = {
-    hug: 'Ты серьёзно выбрала обнять? Смело. Отступать поздно — обниматься придётся оба раза: и при встрече, и на прощание',
-    handshake: 'Пожатие руки. Солидно, по-деловому — прямо как подписание важного контракта',
+    hug: 'Ты серьёзно выбрал(а) обнять? Смело. Отступать поздно — обниматься придётся оба раза: и при встрече, и на прощание.',
+    handshake: 'Пожатие руки. Солидно, по-деловому — прямо как подписание важного контракта. Контракт называется «свидание».',
     ignore: 'Тактика «пройти мимо и сделать вид, что мы тут случайно оба оказались». Классика. Работает примерно никогда.'
   };
   const hugChoicesEl = document.getElementById('hugChoices');
@@ -156,7 +149,7 @@
     'Пицца с ананасом — норм или стрём?',
     'Кошка или собака?',
     'Какое аниме нужно посмотреть первым?',
-    'Неловская ситуация',
+    'Самая смешная ошибка ученика',
     'Ум или красота?'
   ];
   const swipeStage = document.getElementById('swipeStage');
