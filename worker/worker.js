@@ -79,7 +79,12 @@ function buildMessage(d) {
     d.destinations.forEach((t) => lines.push(`  • ${esc(t)}`));
   }
 
+  if (d.dayPhase) {
+    lines.push('');
+    lines.push(`🕐 До какого часа гулять: ${esc(d.dayPhase)}`);
+  }
+
   lines.push('');
-  lines.push('Увидимся 29 августа 🐾');
+  lines.push('Увидимся 31 августа 🐾');
   return lines.join('\n');
 }
