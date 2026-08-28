@@ -8,7 +8,7 @@
   const NOTIFY_SECRET = 'b46b539e7d1cd5aab84ee03f78d0cb4a';
 
   const GREETING_LABELS = { hug: 'Обнять', handshake: 'Пожать руку', ignore: 'Сделать вид, что не заметили' };
-  const DEST_LABELS = { football: '⚽ Матч дня', pcclub: '🎮 ПК-клуб', park: '🌳 Парк и озеро', rio: '🏬 РИО' };
+  const DEST_LABELS = { pcclub: '🎮 ПК-клуб', park: '🌳 Парк и озеро', taksofon: '☎️ Taksofon Coffee', nomadbrew: '🏔️ Nomad Brew', photosession: '📸 Фотосессия' };
 
   const questData = { greeting: null, likedTopics: [], destinations: [], dayPhase: null };
 
@@ -62,7 +62,7 @@
   });
 
   // ---------- countdown ----------
-  const target = new Date('2026-08-29T00:00:00');
+  const target = new Date('2026-08-31T00:00:00');
   function tickCountdown() {
     const now = new Date();
     let diff = target - now;

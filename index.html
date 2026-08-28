@@ -28,7 +28,7 @@
     <div class="terminal">
       <p class="term-line">&gt; загрузка события<span class="blink">_</span></p>
       <h1 class="glitch-title">Встреча<span class="ext">.exe</span></h1>
-      <p class="term-sub">запуск: 29.08.2026 · локация: Кокшетау</p>
+      <p class="term-sub">запуск: 31.08.2026 · локация: Кокшетау</p>
     </div>
 
     <div class="countdown" id="countdown">
@@ -37,7 +37,7 @@
       <div class="cd-block"><span class="cd-num" id="cd-mins">00</span><span class="cd-label">минут</span></div>
     </div>
 
-    <p class="splash-hint">до тебя едет один чел с рюкзаком и явно завышенным самомнением</p>
+    <p class="splash-hint">до тебя долетит один чел с рюкзаком и явно завышенными ожиданиями</p>
 
     <div class="cta-zone" id="ctaZone">
       <button class="mc-btn accept-btn" id="acceptBtn">Принять приглашение</button>
@@ -85,7 +85,7 @@
       <div class="swipe-flag flag-no">не интересно</div>
       <div class="swipe-flag flag-yes">интересно</div>
       <div class="swipe-deck" id="swipeDeck"></div>
-      <p class="swipe-done hidden" id="swipeDone">Темы закончились 🙂</p>
+      <p class="swipe-done hidden" id="swipeDone">Темы закончились. Дальше — сам квест 🙂</p>
     </div>
 
     <p class="swipe-progress" id="swipeProgress">1 / 6</p>
@@ -108,51 +108,61 @@
 
     <div class="dest-scroll" id="destScroll">
 
-      <button class="dest-card" data-dest="football" type="button">
-        <span class="dest-check">✓</span>
-        <h3>⚽ Матч дня</h3>
-        <div class="pitch">
-          <div class="team">
-            <span class="team-name">Кызылжар</span>
-            <small>Петропавловск</small>
-          </div>
-          <div class="ball">⚽</div>
-          <div class="team">
-            <span class="team-name">Окжетпес</span>
-            <small>Кокшетау</small>
-          </div>
-        </div>
-        <p class="joke-text">Кызылжар играет против Окжетпес — и это не подстроено, мир правда так шутит.</p>
-      </button>
-
       <button class="dest-card" data-dest="pcclub" type="button">
         <span class="dest-check">✓</span>
         <h3>🎮 ПК-клуб</h3>
-        <p>Финальный босс уровня — совместный крафт в реальной жизни. Два кресла, один общий лут.</p>
+        <p>Финальный босс уровня — совместный крафт в IRL</p>
         <div class="craft-grid">
-          <span>⛏️</span><span>🧱</span><span>😂</span>
-          <span>⚔️</span><span>💻</span><span>🐾</span>
-          <span>🌐</span><span>🎧</span><span>❤️</span>
+          <span>🎮</span><span>⌨️</span><span>🖱️</span>
+          <span>🎧</span><span>🕹️</span><span>🔥</span>
+          <span>🏆</span><span>💻</span><span>❤️</span>
         </div>
       </button>
 
       <button class="dest-card" data-dest="park" type="button">
         <span class="dest-check">✓</span>
         <h3>🌳 Парк и озеро</h3>
-        <p>На случай, если после крафта нужно перезагрузиться, в прямом смысле, на свежем воздухе</p>
+        <p>На случай, если после крафта нужно перезагрузиться</p>
         <div class="hollywood">
           <div class="hollywood-hill"></div>
           <div class="sign" id="signEl">
             <span class="letter keep">К</span><span class="letter keep">О</span><span class="letter keep">К</span><span class="letter keep">Ш</span><span class="letter fall" style="--d:0">Е</span><span class="letter fall" style="--d:1">Т</span><span class="letter fall" style="--d:2">А</span><span class="letter fall" style="--d:3">У</span>
           </div>
         </div>
-        <p class="hollywood-caption hidden" id="hollywoodCaption">Упав</p>
+        <p class="hollywood-caption hidden" id="hollywoodCaption">Упав(</p>
       </button>
 
-      <button class="dest-card" data-dest="rio" type="button">
+      <button class="dest-card" data-dest="taksofon" type="button">
         <span class="dest-check">✓</span>
-        <h3>🏬 РИО</h3>
-        <p>ТРЦ на случай дождя, скучающих ног или внезапного желания купить мороженое</p>
+        <h3>☎️ Taksofon Coffee</h3>
+        <p>Уютная кофейня в центре города.</p>
+        <p class="joke-text">Выпить по капучино и чизкейку</p>
+        <div class="coffee-cup">
+          <span class="steam s1"></span>
+          <span class="steam s2"></span>
+          <span class="steam s3"></span>
+          <span class="cup">☕</span>
+        </div>
+      </button>
+
+      <button class="dest-card" data-dest="nomadbrew" type="button">
+        <span class="dest-check">✓</span>
+        <h3>🏔️ Nomad Brew</h3>
+        <p>Крутая и очень уютная кофейня в стиле кочевников — ковры, юрты и кофе</p>
+        <div class="nomad-scene">
+          <span class="yurt">⛺</span>
+          <span class="caravan">🐫 🐫 🐫</span>
+        </div>
+      </button>
+
+      <button class="dest-card" data-dest="photosession" type="button">
+        <span class="dest-check">✓</span>
+        <h3>📸 Фотосессия</h3>
+        <p>Организую красивую фотосессию. Обязуюсь обработать всё до Нового года — сроки почти реалистичные</p>
+        <div class="camera-scene">
+          <span class="flash"></span>
+          <span class="camera">📷</span>
+        </div>
       </button>
 
     </div>
@@ -202,7 +212,7 @@
     <canvas id="confettiCanvas"></canvas>
     <div class="final-content">
       <h2 class="final-title">Квест принят.</h2>
-      <p class="final-sub">Увидимся 29 августа.</p>
+      <p class="final-sub">Увидимся 31 августа.</p>
     </div>
   </section>
 

@@ -465,36 +465,6 @@ button {
   margin-top: -6px;
 }
 
-.pitch {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: repeating-linear-gradient(90deg, var(--green-500) 0 20px, var(--green-700) 20px 40px);
-  border-radius: 6px;
-  padding: 16px 12px;
-  overflow: hidden;
-  margin-bottom: 10px;
-}
-.team {
-  display: flex;
-  flex-direction: column;
-  color: var(--text-light);
-  font-size: 0.85rem;
-  z-index: 1;
-}
-.team-name { font-weight: 700; }
-.ball {
-  position: absolute;
-  left: 42%;
-  font-size: 1.3rem;
-  animation: ballMove 2.6s ease-in-out infinite alternate;
-}
-@keyframes ballMove {
-  from { left: 18%; transform: translateY(0); }
-  50%  { transform: translateY(-6px); }
-  to   { left: 72%; transform: translateY(0); }
-}
 .joke-text { font-size: 0.85rem; opacity: 0.8; margin: 0; }
 
 .craft-grid {
@@ -516,6 +486,103 @@ button {
   justify-content: center;
   aspect-ratio: 1;
   font-size: 1.1rem;
+  animation: rgbPulse 3s linear infinite;
+}
+.craft-grid span:nth-child(1) { animation-delay: 0s; }
+.craft-grid span:nth-child(2) { animation-delay: 0.18s; }
+.craft-grid span:nth-child(3) { animation-delay: 0.36s; }
+.craft-grid span:nth-child(4) { animation-delay: 0.54s; }
+.craft-grid span:nth-child(5) { animation-delay: 0.72s; }
+.craft-grid span:nth-child(6) { animation-delay: 0.9s; }
+.craft-grid span:nth-child(7) { animation-delay: 1.08s; }
+.craft-grid span:nth-child(8) { animation-delay: 1.26s; }
+.craft-grid span:nth-child(9) { animation-delay: 1.44s; }
+@keyframes rgbPulse {
+  0%, 100% { box-shadow: 0 0 6px 1px #ff3d5a; border-color: #ff3d5a; }
+  16.6%    { box-shadow: 0 0 6px 1px #ff9d3d; border-color: #ff9d3d; }
+  33.3%    { box-shadow: 0 0 6px 1px #ffe23d; border-color: #ffe23d; }
+  50%      { box-shadow: 0 0 6px 1px #3dff8a; border-color: #3dff8a; }
+  66.6%    { box-shadow: 0 0 6px 1px #3dc8ff; border-color: #3dc8ff; }
+  83.3%    { box-shadow: 0 0 6px 1px #b23dff; border-color: #b23dff; }
+}
+
+/* --- Taksofon Coffee: steaming cup --- */
+.coffee-cup {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 70px;
+  margin-top: 10px;
+}
+.coffee-cup .cup { font-size: 2.2rem; line-height: 1; }
+.coffee-cup .steam {
+  position: absolute;
+  bottom: 34px;
+  width: 4px;
+  height: 16px;
+  border-radius: 3px;
+  background: rgba(122, 74, 38, 0.35);
+  animation: steamRise 2.2s ease-in infinite;
+}
+.coffee-cup .s1 { left: calc(50% - 10px); animation-delay: 0s; }
+.coffee-cup .s2 { left: calc(50% - 1px); animation-delay: 0.5s; }
+.coffee-cup .s3 { left: calc(50% + 8px); animation-delay: 1s; }
+@keyframes steamRise {
+  0%   { transform: translateY(0) scaleX(1); opacity: 0; }
+  20%  { opacity: 0.7; }
+  100% { transform: translateY(-32px) scaleX(1.6); opacity: 0; }
+}
+
+/* --- Nomad Brew: caravan crossing the steppe --- */
+.nomad-scene {
+  position: relative;
+  height: 60px;
+  margin-top: 10px;
+  overflow: hidden;
+  border-radius: 6px;
+  background: linear-gradient(180deg, #f3d9a4 0%, #e0b672 100%);
+}
+.nomad-scene .yurt {
+  position: absolute;
+  left: 10px;
+  bottom: 4px;
+  font-size: 1.6rem;
+}
+.nomad-scene .caravan {
+  position: absolute;
+  bottom: 6px;
+  font-size: 1.3rem;
+  white-space: nowrap;
+  animation: caravanWalk 6s linear infinite;
+}
+@keyframes caravanWalk {
+  from { left: 100%; }
+  to   { left: -60%; }
+}
+
+/* --- Photosession: camera flash --- */
+.camera-scene {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  margin-top: 10px;
+}
+.camera-scene .camera { font-size: 2.2rem; z-index: 1; }
+.camera-scene .flash {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0) 70%);
+  animation: cameraFlash 2.4s ease-in-out infinite;
+}
+@keyframes cameraFlash {
+  0%, 82%, 100% { opacity: 0; transform: scale(0.6); }
+  86%           { opacity: 1; transform: scale(1.3); }
+  92%           { opacity: 0; transform: scale(1.5); }
 }
 
 .hollywood {
